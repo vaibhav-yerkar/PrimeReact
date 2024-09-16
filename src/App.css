@@ -11,6 +11,22 @@ td{
   padding: 0.8rem 0rem;
 }
 
+.overlay-input{
+  font-size: 16px;
+  padding: 0.2rem 0.2rem;
+}
+.overlay-submit-btn{
+  background-color: rgb(74, 176, 74);
+  border-radius: 6px;
+  border: none;
+  width: 60%;
+  margin-left: 40%;
+  padding: 0.4rem 0rem;
+}
+.overlay-submit-btn:active{
+  background-color: rgb(0, 130, 0);
+}
+
 .p-checkbox-input{
   scale:1.2;
 }
@@ -39,4 +55,13 @@ td{
     aspect-ratio: 1/1;
   }
   
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+  -moz-appearance: textfield;
 }
