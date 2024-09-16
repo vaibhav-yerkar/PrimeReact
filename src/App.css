@@ -1,0 +1,42 @@
+.heading{
+  padding: 1rem 0rem;
+  padding-left:45vw;
+}
+
+th{
+  padding: 0.4rem 0.4rem;
+  background-color: #414141;
+}
+td{
+  padding: 0.8rem 0rem;
+}
+
+.p-checkbox-input{
+  scale:1.2;
+}
+.p-checkbox-icon{
+  display: none;
+}
+
+.p-paginator{
+  padding: 1rem 0rem;
+  gap:2rem;
+  svg{
+    scale:1.4;
+  }
+  .p-paginator-page{
+    padding: 0rem 1rem;
+    font-weight: 900;
+    font-size: medium;
+    color:#656565;
+  }
+  .p-highlight{
+    color:#FFF;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50px;
+    padding:0.4rem;
+    min-width: 36px;
+    aspect-ratio: 1/1;
+  }
+  
+}
