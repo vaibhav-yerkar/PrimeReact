@@ -25,7 +25,7 @@ const DataList: React.FC = () => {
     rows: 12,
     page: 1,
   });
-  const open = useRef(null);
+  const open = useRef<OverlayPanel>(null);
   const [selectCount, setSelectCount] = useState(0);
   const [remainingToSelect, setRemainingToSelect] = useState(0);
 
@@ -72,7 +72,7 @@ const DataList: React.FC = () => {
     setSelectedRows(event.value);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     setSelectCount(Number(e.target.value));
   };
 
@@ -87,12 +87,12 @@ const DataList: React.FC = () => {
 
     setSelectedRows(selectedItems); 
     setRemainingToSelect(remaining);
-    open.current.hide();
+    open.current!.hide();
   };
 
   const headerWithSvg = (
     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-      <FaChevronDown onClick={(e) => open.current.toggle(e)} />
+      <FaChevronDown onClick={(e) => open.current?.toggle(e)} />
       <OverlayPanel ref={open}>
         <div style={{
           border: '1px solid #EAEAEA',
@@ -141,6 +141,7 @@ const DataList: React.FC = () => {
           loading={loading}
           tableStyle={{ minWidth: '80rem', padding: '0rem 1rem', textAlign: 'start', margin: '1.2rem 0rem' }}
           selection={selectedRows}
+          selectionMode="multiple"
           onSelectionChange={onSelectionChange}
         >
           <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
