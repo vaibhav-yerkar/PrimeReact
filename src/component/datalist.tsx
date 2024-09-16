@@ -27,9 +27,8 @@ const DataList: React.FC = () => {
   });
   const open = useRef(null);
   const [selectCount, setSelectCount] = useState(0);
-  const [remainingToSelect, setRemainingToSelect] = useState(0); // Keep track of remaining rows to select
+  const [remainingToSelect, setRemainingToSelect] = useState(0);
 
-  // Fetch data from the API
   const fetchData = async (page: number) => {
     setLoading(true);
     try {
@@ -51,7 +50,6 @@ const DataList: React.FC = () => {
     fetchData(lazyState.page);
   }, [lazyState.page]);
 
-  // Effect to handle row selection when data changes
   useEffect(() => {
     if (remainingToSelect > 0) {
       const currentPageData = data.slice(0, Math.min(data.length, remainingToSelect));
@@ -61,8 +59,7 @@ const DataList: React.FC = () => {
     }
   }, [data]);
 
-  // Handle page change event
-  const onPage = (event) => {
+  const onPage = (event:any) => {
     setLazyState({
       ...lazyState,
       first: event.first,
@@ -71,7 +68,7 @@ const DataList: React.FC = () => {
     });
   };
 
-  const onSelectionChange = (event) => {
+  const onSelectionChange = (event:any) => {
     setSelectedRows(event.value);
   };
 
@@ -79,19 +76,18 @@ const DataList: React.FC = () => {
     setSelectCount(Number(e.target.value));
   };
 
-  // Handle selection when submit is clicked
   const handleSubmit = () => {
-    let selectedItems = [];
-    let rowsToSelectNow = Math.min(selectCount, data.length); // Select as many as possible on the current page
-    let remaining = selectCount - rowsToSelectNow; // Calculate the remaining to select
+    let selectedItems:any[] = [];
+    let rowsToSelectNow = Math.min(selectCount, data.length);
+    let remaining = selectCount - rowsToSelectNow;
 
     if (rowsToSelectNow > 0) {
       selectedItems = [...data.slice(0, rowsToSelectNow)];
     }
 
-    setSelectedRows(selectedItems); // Set the initially selected rows
-    setRemainingToSelect(remaining); // Keep track of remaining rows to select
-    open.current.hide(); // Close the overlay after submitting
+    setSelectedRows(selectedItems); 
+    setRemainingToSelect(remaining);
+    open.current.hide();
   };
 
   const headerWithSvg = (
